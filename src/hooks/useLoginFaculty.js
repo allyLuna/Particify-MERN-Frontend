@@ -6,13 +6,15 @@ export const useLoginFaculty = () => {
     const [isLoading, setIsLoading] = useState(null)
     const {dispatch} = useAuthContextFaculty()
 
+    const url = "https://particify-backend.adaptable.app";
+
     const loginFaculty = async (username, password) => {
         setIsLoading(true)
         setError(null)
     
         const faculty = {username, password}
 
-        const response = await fetch('/api/faculty/login-faculty', {
+        const response = await fetch(url + '/api/faculty/login-faculty', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(faculty),

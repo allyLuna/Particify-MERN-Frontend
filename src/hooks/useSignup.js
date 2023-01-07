@@ -6,13 +6,15 @@ export const useSignup = () => {
     const [isLoading, setIsLoading] = useState(null)
     const {dispatch} = useAuthContext()
 
+    const url = "https://particify-backend.adaptable.app";
+
     const signup = async (nameofStudent, username, email, password) => {
         setIsLoading(true)
         setError(null)
     
         const student = {nameofStudent, username, email, password}
 
-        const response = await fetch('/api/students/signup-student', {
+        const response = await fetch(url + '/api/students/signup-student', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(student),

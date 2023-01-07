@@ -6,6 +6,8 @@ export const useSelection = () => {
     const [isLoading, setIsLoading] = useState(null)
     const {student} = useAuthContext()
 
+    const url = "https://particify-backend.adaptable.app";
+
     const selection = async (student_uname, eventTimestamp, objectName) => {
         setIsLoading(true)
         setError(null)
@@ -16,7 +18,7 @@ export const useSelection = () => {
           }
         const selectionDts = {student_uname, eventTimestamp, objectName}
 
-        const response = await fetch('/api/students/createSelection', {
+        const response = await fetch(url + '/api/students/createSelection', {
             method: 'POST',
             body: JSON.stringify(selectionDts),
             headers: {'Content-Type': 'application/json',

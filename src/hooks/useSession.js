@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useFacultySetting } from "./useFacultySetting";
-import io from "socket.io-client";
+//import io from "socket.io-client";
 //import { useEffect } from "react";
 //import { useAuthContext } from "../hooks/useAuthContext";
 
@@ -9,7 +9,10 @@ export const useSession = () => {
     const [isLoading, setIsLoading] = useState(null)
     const {dispatch} = useFacultySetting()
    // const {student} = useAuthContext()
-    const socket = io.connect("http://localhost:4001");
+   
+   const url = "https://particify-backend.adaptable.app";
+
+    //const socket = io.connect("http://localhost:4001");
    // const [room, setRoom] = useState("")
    var room = {};
 
@@ -19,7 +22,7 @@ export const useSession = () => {
     
         const session = {class_Code}
          room = {class_Code}
-        const response = await fetch('/api/students/student-home', {
+        const response = await fetch(url + '/api/students/student-home', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(session),
@@ -39,9 +42,9 @@ export const useSession = () => {
             // update auth context
             dispatch({type: 'ENTER_SESSION', payload: json})
             
-            if (room !== "") {
-                socket.emit("join_room", session);
-            }
+            //if (room !== "") {
+             //   socket.emit("join_room", session);
+            //}
 
             setIsLoading(false)
 

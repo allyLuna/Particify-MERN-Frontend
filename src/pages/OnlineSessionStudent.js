@@ -9,6 +9,9 @@ import { useFacultySetting } from '../hooks/useFacultySetting'
 import { useSession } from "../hooks/useSession";
 
 const OnlineSessionStudent = () => {
+
+    const url = "https://particify-backend.adaptable.app";
+
     var [Score, setScore ] = useState(2000)
     var [parAsk, setAsk ] = useState(0)
     var [parRec, setRec ] = useState(0)
@@ -138,7 +141,7 @@ const OnlineSessionStudent = () => {
 
 //-----FOR STUDENT SELECTION--------
     const fetchFirst = async (e) => {
-        const response = await fetch('/api/students/selectedFirst')
+        const response = await fetch(url + '/api/students/selectedFirst')
         const data = await response.json()
          setSelected(data.student_uname)
         //setidStud(data.id)
@@ -154,7 +157,7 @@ const OnlineSessionStudent = () => {
     //score update
     const updateScore = async (e) => {
         
-        const response = await fetch('/api/students/updateScore/' + selected, {
+        const response = await fetch(url + '/api/students/updateScore/' + selected, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json',
                       'Authorization': `Bearer ${student.token}`},
@@ -170,7 +173,7 @@ const OnlineSessionStudent = () => {
     //frequency update
     const updateFreq = async (e) => {
         
-        const response = await fetch('/api/students/updateParticipation/' + student.username, {
+        const response = await fetch(url + '/api/students/updateParticipation/' + student.username, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json',
                       'Authorization': `Bearer ${student.token}`},
@@ -186,7 +189,7 @@ const OnlineSessionStudent = () => {
     //for deletion 
     const deleteSelection = async (e) => {
         
-        const response = await fetch('/api/students/deleteSelection/' + idSelected, {
+        const response = await fetch(url + '/api/students/deleteSelection/' + idSelected, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json',
                       'Authorization': `Bearer ${student.token}`}
@@ -202,7 +205,7 @@ const OnlineSessionStudent = () => {
     const getResults = async (e) => {
         
        
-            const response = await fetch('/api/students/getResults')
+            const response = await fetch(url + '/api/students/getResults')
             const data = await response.json()
           
           setuResults(data[0].username)
@@ -219,7 +222,7 @@ const OnlineSessionStudent = () => {
     //get current score
     const getStudentScore = async (e) => {
         
-        const response = await fetch('/api/students/getScore/' + student.username)
+        const response = await fetch(url + '/api/students/getScore/' + student.username)
         const data = await response.json()
         setCurrentScore(data[0].score)
         console.log(currScore)
@@ -230,7 +233,7 @@ const OnlineSessionStudent = () => {
 
     const theReward = async (e) => {
         
-    const response = await fetch('/api/faculty/getReward/' + session.class_Code)
+    const response = await fetch(url + '/api/faculty/getReward/' + session.class_Code)
     const data = await response.json()
     setRewards(data[0].class_Reward)
     console.log(data[0].class_Reward)
