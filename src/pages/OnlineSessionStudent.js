@@ -248,7 +248,7 @@ const OnlineSessionStudent = () => {
 //-------------SERVER CONNECTION---------------
     
    
-    const socket = io.connect("https://particify-backend.adaptable.app/"+ 4000);
+    const socket = io.connect("https://particify-backend.adaptable.app:"+ 4000);
     
     // kay useeffect dapat ung paghcnage ng leaderboards
     useEffect(() => {
