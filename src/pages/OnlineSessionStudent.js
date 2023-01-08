@@ -248,7 +248,7 @@ const OnlineSessionStudent = () => {
 //-------------SERVER CONNECTION---------------
     
    
-    const socket = io.connect("https://particify-backend.adaptable.app:"+ process.env.PORT);
+    const socket = io.connect("https://particify-backend.adaptable.app:"+"https://enchanting-madeleine-c3ff07.netlify.app");
     
     // kay useeffect dapat ung paghcnage ng leaderboards
     useEffect(() => {
