@@ -259,7 +259,7 @@ const OnlineSessionStudent = () => {
            setShowTaskDlg(true);	
            
     });
-    }, [socket])
+    }, [])
 
     
 //-------------END------------------------------
