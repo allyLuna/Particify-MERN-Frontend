@@ -250,7 +250,7 @@ const OnlineSessionStudent = () => {
    
     //const socket = io.connect("https://particify-backend.adaptable.app:80");
     
-    const socket = io.connect('wss://particify-backend.adaptable.app:80',
+    const socket = io.connect('https://particify-backend.adaptable.app:80',
         {//cors:{origin: "https://enchanting-madeleine-c3ff07.netlify.app"} ,
          transports: ['websocket','polling'],
          upgrade:false})
