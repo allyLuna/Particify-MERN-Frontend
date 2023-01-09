@@ -118,7 +118,7 @@ const OnlineSessionStudent = () => {
     deleteSelection();
     setShowTaskDlg(false);
     updateScore();
-    setSelected();
+    setSelected('');
     theReward()
     setdlgTitle("");
     setDlg(null);
