@@ -205,8 +205,8 @@ const fetchFirst = async (e) => {
 //-------------SERVER CONNECTION---------------
     //new 12-7
     const socket = io.connect('https://particify-backend.adaptable.app',
-        { //cors:{origin: "https://enchanting-madeleine-c3ff07.netlify.app"} ,
-         transports: ['polling','websocket'],
+        { //cors:{ origin: "https://enchanting-madeleine-c3ff07.netlify.app"} ,
+         transports: ['websocket','polling'],
          upgrade:false})
     // kay useeffect dapat ung paghcnage ng leaderbpards
     useEffect(() => {
