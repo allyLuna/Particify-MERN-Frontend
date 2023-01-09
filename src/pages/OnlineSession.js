@@ -204,8 +204,10 @@ const fetchFirst = async (e) => {
 
 //-------------SERVER CONNECTION---------------
     //new 12-7
-    const socket = io.connect("http://localhost:4001");
-    
+    const socket = io.connect('https://particify-backend.adaptable.app',
+        { //cors:{origin: "https://enchanting-madeleine-c3ff07.netlify.app"} ,
+         transports: ['polling','websocket'],
+         upgrade:false})
     // kay useeffect dapat ung paghcnage ng leaderbpards
     useEffect(() => {
         socket.on("receive_message", (data) => {
