@@ -252,7 +252,7 @@ const OnlineSessionStudent = () => {
     
     const socket = io.connect('https://particify-backend.adaptable.app',
         { //cors:{origin: "https://enchanting-madeleine-c3ff07.netlify.app"} ,
-         transports: ['polling','websocket'],
+         transports: ['polling'],
          upgrade:false})
     // kay useeffect dapat ung paghcnage ng leaderboards
     useEffect(() => {
