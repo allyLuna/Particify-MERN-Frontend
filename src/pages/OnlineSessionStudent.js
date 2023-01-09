@@ -249,7 +249,7 @@ const OnlineSessionStudent = () => {
     
    
     //const socket = io.connect("https://particify-backend.adaptable.app:80");
-    const socket = io.connect('https://particify-backend.adaptable.app',{transports: ['websocket'],upgrade:false})
+    const socket = io.connect('https://particify-backend.adaptable.app',{transports: ['websocket','polling'],upgrade:false})
     // kay useeffect dapat ung paghcnage ng leaderboards
     useEffect(() => {
         socket.on("receive_message", () => {
