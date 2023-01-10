@@ -20,11 +20,13 @@ export const useSelection = () => {
 
         const response = await fetch(url + '/api/students/createSelection', {
             method: 'POST',
-            body: JSON.stringify(selectionDts),
+        
             headers: {'Content-Type': 'application/json',
                       'Authorization': `Bearer ${student.token}`,
-                      'Access-Control-Allow-Credentials' : true}
+                      'Access-Control-Allow-Credentials' : true},
+            body: JSON.stringify(selectionDts)
         })
+
         const json = await response.json()
 
         if(!response.ok){
