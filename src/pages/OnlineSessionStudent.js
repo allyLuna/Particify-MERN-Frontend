@@ -145,7 +145,7 @@ const OnlineSessionStudent = () => {
             method: 'GET',
             headers: {'Content-Type': 'application/json',
                     //  'Authorization': `Bearer ${student.token}`},
-                    //  'Access-Control-Allow-Origin' : "*", 
+                    'Access-Control-Allow-Origin' : 'https://particify.netlify.app', 
                       'Access-Control-Allow-Credentials' : true
             
     }})
@@ -167,7 +167,8 @@ const OnlineSessionStudent = () => {
         const response = await fetch(url + '/api/students/updateScore/' + selected, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json',
-                      'Authorization': `Bearer ${student.token}`},
+                      'Authorization': `Bearer ${student.token}`,
+                      'Access-Control-Allow-Origin' : 'https://particify.netlify.app'},
             body:   JSON.stringify({score:Score})
             
         })
@@ -183,7 +184,8 @@ const OnlineSessionStudent = () => {
         const response = await fetch(url + '/api/students/updateParticipation/' + student.username, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json',
-                      'Authorization': `Bearer ${student.token}`},
+                      'Authorization': `Bearer ${student.token}`,
+                      'Access-Control-Allow-Origin' : 'https://particify.netlify.app'},
             body:   JSON.stringify({participationAsk:parAsk, participationRec:parRec,participationGive:parGive})
             
         })
@@ -199,7 +201,8 @@ const OnlineSessionStudent = () => {
         const response = await fetch(url + '/api/students/deleteSelection/' + idSelected, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json',
-                      'Authorization': `Bearer ${student.token}`}
+                      'Authorization': `Bearer ${student.token}`,
+                      'Access-Control-Allow-Origin' : 'https://particify.netlify.app'}
             
         })
         
@@ -216,7 +219,7 @@ const OnlineSessionStudent = () => {
                 method: 'GET',
                 headers: {'Content-Type': 'application/json',
                         //  'Authorization': `Bearer ${student.token}`},
-                        //  'Access-Control-Allow-Origin' : "*", 
+                        'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
                           'Access-Control-Allow-Credentials' : true
                 
         }})
@@ -240,7 +243,7 @@ const OnlineSessionStudent = () => {
             method: 'GET',
             headers: {'Content-Type': 'application/json',
                     //  'Authorization': `Bearer ${student.token}`},
-                    //  'Access-Control-Allow-Origin' : "*", 
+                    'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
                       'Access-Control-Allow-Credentials' : true
             
     }})
@@ -258,7 +261,7 @@ const OnlineSessionStudent = () => {
         method: 'GET',
         headers: {'Content-Type': 'application/json',
                 //  'Authorization': `Bearer ${student.token}`},
-                //  'Access-Control-Allow-Origin' : "*", 
+                'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
                   'Access-Control-Allow-Credentials' : true
         
 }}

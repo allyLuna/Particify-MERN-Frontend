@@ -61,6 +61,7 @@ const fetchFirst = async (e) => {
     {
         method: 'GET',
         headers: {'Content-Type': 'application/json',
+                  'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
                   'Access-Control-Allow-Credentials' : true
         
 }})
@@ -76,6 +77,7 @@ const fetchFirst = async (e) => {
         const response = await fetch(url + '/api/students/updateParticipation/' + selectedstud, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
                       'Authorization': `Bearer ${student.token}`},
             body:   JSON.stringify({participationRec:parRec})
             
@@ -92,6 +94,7 @@ const fetchFirst = async (e) => {
         const response = await fetch(url + '/api/students/updateScore/' + selectedstud, {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
                       'Authorization': `Bearer ${student.token}`},
             body:   JSON.stringify({score:Score})
             
@@ -108,6 +111,7 @@ const fetchFirst = async (e) => {
             method: 'GET',
             headers: {'Content-Type': 'application/json',
                       'Authorization': `Bearer ${student.token}`,
+                      'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
                      'Access-Control-Allow-Credentials' : true
                         
                 }})

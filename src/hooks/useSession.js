@@ -25,6 +25,7 @@ export const useSession = () => {
         const response = await fetch(url + '/api/students/student-home', {
             method: 'POST',
             headers: {'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
                         'Access-Control-Allow-Credentials' : true},
             body: JSON.stringify(session),
             
