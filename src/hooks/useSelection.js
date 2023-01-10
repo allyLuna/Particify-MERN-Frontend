@@ -22,8 +22,8 @@ export const useSelection = () => {
             method: 'POST',
             body: JSON.stringify(selectionDts),
             headers: {'Content-Type': 'application/json',
-                      'Authorization': `Bearer ${student.token}`}
-            
+                      'Authorization': `Bearer ${student.token}`,
+                      'Access-Control-Allow-Credentials' : true}
         })
         const json = await response.json()
 

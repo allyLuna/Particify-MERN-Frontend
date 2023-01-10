@@ -57,7 +57,13 @@ const OnlineSession = () => {
 };
 
 const fetchFirst = async (e) => {
-    const response = await fetch(url + '/api/students/selectedFirst')
+    const response = await fetch(url + '/api/students/selectedFirst',
+    {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json',
+                  'Access-Control-Allow-Credentials' : true
+        
+}})
     const data = await response.json()
      setSelectedStud(data.student_uname)
     //setidStud(data.id)
@@ -101,7 +107,10 @@ const fetchFirst = async (e) => {
         const response = await fetch(url + '/api/students/getScore/' + selectedstud , {
             method: 'GET',
             headers: {'Content-Type': 'application/json',
-                      'Authorization': `Bearer ${student.token}`}})
+                      'Authorization': `Bearer ${student.token}`,
+                     'Access-Control-Allow-Credentials' : true
+                        
+                }})
         const data = await response.json()
         setCurrentScore(data[0].score)
         setScore(Score+currScore)

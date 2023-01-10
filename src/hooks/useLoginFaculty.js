@@ -16,7 +16,8 @@ export const useLoginFaculty = () => {
 
         const response = await fetch(url + '/api/faculty/login-faculty', {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
+            headers: {'Content-Type': 'application/json',
+            'Access-Control-Allow-Credentials' : true},
             body: JSON.stringify(faculty),
         })
         const json = await response.json()
