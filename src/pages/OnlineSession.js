@@ -142,7 +142,7 @@ const fetchFirst = async (e) => {
         getLTStud();
         setShowTaskDlg(true);
         setdlgTitle("Takeaway")
-       socket.emit("send_message")
+       //socket.emit("send_message")
         return data;
     };
 
