@@ -20,14 +20,13 @@ export const useSelection = () => {
 
         const response = await fetch(url + '/api/students/createSelection', {
             method: 'POST',
-        
             headers: {'Content-Type': 'application/json',
                       'Authorization': `Bearer ${student.token}`,
                       //'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
                       //'Access-Control-Allow-Credentials' : true},
         },
              mode: "no-cors",
-            body: JSON.stringify(selectionDts)
+            body: JSON.parse(selectionDts)
         })
 
         const json = await response.json()
