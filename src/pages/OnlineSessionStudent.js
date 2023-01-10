@@ -168,7 +168,8 @@ const OnlineSessionStudent = () => {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json',
                       'Authorization': `Bearer ${student.token}`,
-                      'Access-Control-Allow-Origin' : 'https://particify.netlify.app'},
+                      'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
+                      'Access-Control-Allow-Credentials' : true},
             body:   JSON.stringify({score:Score})
             
         })
@@ -185,7 +186,8 @@ const OnlineSessionStudent = () => {
             method: 'PATCH',
             headers: {'Content-Type': 'application/json',
                       'Authorization': `Bearer ${student.token}`,
-                      'Access-Control-Allow-Origin' : 'https://particify.netlify.app'},
+                      'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
+                      'Access-Control-Allow-Credentials' : true},
             body:   JSON.stringify({participationAsk:parAsk, participationRec:parRec,participationGive:parGive})
             
         })
@@ -202,7 +204,8 @@ const OnlineSessionStudent = () => {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json',
                       'Authorization': `Bearer ${student.token}`,
-                      'Access-Control-Allow-Origin' : 'https://particify.netlify.app'}
+                      'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
+                      'Access-Control-Allow-Credentials' : true}
             
         })
         
