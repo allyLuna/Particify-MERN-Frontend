@@ -23,8 +23,10 @@ export const useSelection = () => {
         
             headers: {'Content-Type': 'application/json',
                       'Authorization': `Bearer ${student.token}`,
-                      'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
-                      'Access-Control-Allow-Credentials' : true},
+                      //'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
+                      //'Access-Control-Allow-Credentials' : true},
+        },
+             mode: "no-cors",
             body: JSON.stringify(selectionDts)
         })
 
