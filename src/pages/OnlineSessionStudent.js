@@ -57,7 +57,8 @@ const OnlineSessionStudent = () => {
        
        // setShowTaskDlg(true);
        getStudentScore();
-        setScore(currScore + 100);
+       
+        setCurrentScore(currScore + 100);
         setAsk(parAsk+ 1);
         //setdlgTitle(e.target.value)
         setidSelected("Askaquestion")
@@ -80,7 +81,7 @@ const OnlineSessionStudent = () => {
         //setShowTaskDlg(true);
         setdlgTitle(e.target.value)
         getStudentScore();
-        setScore(currScore + 500);
+        setCurrentScore(currScore + 500);
         setRec(parRec+1);
         setidSelected("Recite");
         fetchFirst();
@@ -101,7 +102,7 @@ const OnlineSessionStudent = () => {
         //setShowTaskDlg(true);
         setdlgTitle(e.target.value)
         getStudentScore();
-        setScore(currScore + 200);
+        setCurrentScore(currScore + 200);
         setGive(parGive+1);
         fetchFirst();
         titleDlg(); updateFreq();
@@ -120,7 +121,8 @@ const OnlineSessionStudent = () => {
     console.log('Cancel');
     deleteSelection();
     setShowTaskDlg(false);
-    //updateScore();
+    //getStudentScore();
+    updateScore();
     setSelected('');
     theReward()
     setdlgTitle("");
@@ -173,7 +175,7 @@ const OnlineSessionStudent = () => {
                       'Authorization': `Bearer ${student.token}`,
                       'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
                       'Access-Control-Allow-Credentials' : true},
-            body:   JSON.stringify({score:Score})
+            body:   JSON.stringify({score:currScore})
             
         })
         
@@ -300,8 +302,8 @@ const OnlineSessionStudent = () => {
     useEffect(() => {
         socket.on("receive_message", () => {
            fetchFirst();
-           updateScore();
-           getStudentScore();
+           //updateScore();
+           //getStudentScore();
            getResults();
            setShowTaskDlg(true);	
            
