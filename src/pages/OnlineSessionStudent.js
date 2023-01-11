@@ -12,7 +12,7 @@ const OnlineSessionStudent = () => {
 
     const url = "https://particify-backend.adaptable.app";
 
-    var [Score, setScore ] = useState(0)
+    var [Score, setScore ] = useState(2000)
     var [parAsk, setAsk ] = useState(0)
     var [parRec, setRec ] = useState(0)
     var [parGive, setGive ] = useState(0)
@@ -54,9 +54,9 @@ const OnlineSessionStudent = () => {
         // input for selection
         await selection(student.username, e.timeStamp , e.target.value);
        
-        getStudentScore();
+       
        // setShowTaskDlg(true);
-        setScore(Score = currScore + 100);
+        setScore(Score = Score + 100);
         setAsk(parAsk+1);
         //setdlgTitle(e.target.value)
         setidSelected("Askaquestion")
@@ -78,8 +78,7 @@ const OnlineSessionStudent = () => {
         setDlg(dlgread = 2);
         //setShowTaskDlg(true);
         setdlgTitle(e.target.value)
-        getStudentScore();
-        setScore(Score = currScore + 500);
+        setScore(Score = Score + 500);
         setRec(parRec+1);
         setidSelected("Recite");
         fetchFirst();
@@ -98,9 +97,8 @@ const OnlineSessionStudent = () => {
        
         setDlg(dlgread = 3);
         //setShowTaskDlg(true);
-        getStudentScore();
         setdlgTitle(e.target.value)
-        setScore(Score = currScore + 200);
+        setScore(Score = Score + 200);
         setGive(parGive+1);
         fetchFirst();
         titleDlg(); updateFreq();
@@ -254,7 +252,6 @@ const OnlineSessionStudent = () => {
     }})
         const data  = await response.json()
         setCurrentScore(data[0].score)
-        //setScore(data.score)
         console.log(currScore)
         return data;
     };
@@ -290,7 +287,7 @@ const OnlineSessionStudent = () => {
     
     const socket = io.connect('https://particify-backend.adaptable.app',
         { //cors:{ origin: "https://enchanting-madeleine-c3ff07.netlify.app"} ,
-            transports: ["websocket", "polling"],
+         transports: ['websocket','polling'],
          upgrade:false})
     // kay useeffect dapat ung paghcnage ng leaderboards
     useEffect(() => {
