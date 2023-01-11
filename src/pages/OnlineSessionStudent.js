@@ -13,15 +13,15 @@ const OnlineSessionStudent = () => {
     const url = "https://particify-backend.adaptable.app";
 
     var [Score, setScore ] = useState(0)
-    var [parAsk, setAsk ] = useState(0)
-    var [parRec, setRec ] = useState(0)
-    var [parGive, setGive ] = useState(0)
+    var [parAsk, setAsk ] = useState()
+    var [parRec, setRec ] = useState()
+    var [parGive, setGive ] = useState()
 
     const {room} = useSession()
     const {student} = useAuthContext()
     const {session} = useFacultySetting()
     const {selection, error} = useSelection();
-    const [currScore, setCurrentScore] = useState(0);
+    var [currScore, setCurrentScore] = useState();
     
     // for dialog titles
     var[dlgread, setDlg] = useState(0);
@@ -257,10 +257,10 @@ const OnlineSessionStudent = () => {
     }})
         const data  = await response.json()
 
-        setCurrentScore(data.score)
-        setAsk(data.participationAsk);
-        setRec(data.participationRec);
-        setGive(data.participationGive);
+        setCurrentScore(data[0].score)
+        setAsk(data[0].participationAsk);
+        setRec(data[0].participationRec);
+        setGive(data[0].participationGive);
         console.log(currScore)
         return data;
     };
