@@ -17,8 +17,7 @@ export const useLogin = () => {
         const response = await fetch(url + '/api/students/login-student', {
             method: 'POST',
             headers: {'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
-            'Access-Control-Allow-Credentials' : true},
+            'Access-Control-Allow-Origin' : 'https://particify.netlify.app'},
             body: JSON.stringify(student),
         })
         const json = await response.json()
