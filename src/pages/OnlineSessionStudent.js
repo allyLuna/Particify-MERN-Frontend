@@ -12,19 +12,19 @@ const OnlineSessionStudent = () => {
 
     const url = "https://particify-backend.adaptable.app";
 
-    var [Score, setScore ] = useState(0)
-    var [parAsk, setAsk ] = useState()
-    var [parRec, setRec ] = useState()
-    var [parGive, setGive ] = useState()
+    var [Score, setScore ] = useState(2000)
+    var [parAsk, setAsk ] = useState(0)
+    var [parRec, setRec ] = useState(0)
+    var [parGive, setGive ] = useState(0)
 
     const {room} = useSession()
     const {student} = useAuthContext()
     const {session} = useFacultySetting()
     const {selection, error} = useSelection();
-    var [currScore, setCurrentScore] = useState();
-    
+    var [currScore, setCurrentScore] = useState()
+
     // for dialog titles
-    var[dlgread, setDlg] = useState(0);
+    var[dlgread, setDlg] = useState(0)
     
 
 
@@ -43,73 +43,71 @@ const OnlineSessionStudent = () => {
     const [sresults3, setsResults3] = useState([]);
   //  var theScores = [];
 
-
 //-----------------ACTION BUTTONS-------------------------------
 
-    //Ask
-    const btnAsk = async (e) => {
+   //Ask
+   const btnAsk = async (e) => {
         
-        e.preventDefault()
-        console.log(e.timeStamp, e.target.value);
-        // input for selection
-        await selection(student.username, e.timeStamp , e.target.value);
-       
-       
-       // setShowTaskDlg(true);
-       getStudentScore();
-       
-        setCurrentScore(currScore = currScore + 100);
-        setAsk(parAsk+ 1);
-        //setdlgTitle(e.target.value)
-        setidSelected("Askaquestion")
-        setDlg(dlgread = 1);
-        fetchFirst();
-        titleDlg(); updateFreq();
-       socket.emit("send_message", room);
-       // console.log({room})
-        
-    }
-        
-    //Recite  
-    const btnRecite = async (e) =>  {
-        e.preventDefault()
-        console.log(e.timeStamp);
-         // input for selection
-        await selection(student.username,e.timeStamp , e.target.value)
-        
-        setDlg(dlgread = 2);
-        //setShowTaskDlg(true);
-        setdlgTitle(e.target.value)
-        getStudentScore();
-        setCurrentScore(currScore + 500);
-        setRec(parRec+1);
-        setidSelected("Recite");
-        fetchFirst();
-        titleDlg();updateFreq();
-      socket.emit("send_message", room);
-       
-        
-    }
+    e.preventDefault()
+    console.log(e.timeStamp, e.target.value);
+    // input for selection
+    await selection(student.username, e.timeStamp , e.target.value);
+   
+   
+   // setShowTaskDlg(true);
+    setScore(Score = Score + 100);
+    setAsk(parAsk+1);
+    //setdlgTitle(e.target.value)
+    setidSelected("Askaquestion")
+    setDlg(dlgread = 1);
+    fetchFirst();
+    updateScore();
+    titleDlg(); updateFreq();
+    socket.emit("send_message", room);
+   // console.log({room})
+    
+}
+    
+//Recite  
+const btnRecite = async (e) =>  {
+    e.preventDefault()
+    console.log(e.timeStamp);
+     // input for selection
+    await selection(student.username,e.timeStamp , e.target.value)
+    
+    setDlg(dlgread = 2);
+    //setShowTaskDlg(true);
+    setdlgTitle(e.target.value)
+    setScore(Score = Score + 500);
+    setRec(parRec+1);
+    setidSelected("Recite");
+    fetchFirst();
+    updateScore();
+    titleDlg();updateFreq();
+   socket.emit("send_message", room);
+   
+    
+}
 
-    //Give Idea
-    const btnGive = async (e) =>  {
-        e.preventDefault()
-        console.log(e.timeStamp);
-         // input for selection
-        await selection(student.username,e.timeStamp , e.target.value)
-       
-        setDlg(dlgread = 3);
-        //setShowTaskDlg(true);
-        setdlgTitle(e.target.value)
-        getStudentScore();
-        setCurrentScore(currScore + 200);
-        setGive(parGive+1);
-        fetchFirst();
-        titleDlg(); updateFreq();
-        setidSelected("Giveoutidea")
-       socket.emit("send_message", room);
-       
-    };
+//Give Idea
+const btnGive = async (e) =>  {
+    e.preventDefault()
+    console.log(e.timeStamp);
+     // input for selection
+    await selection(student.username,e.timeStamp , e.target.value)
+   
+    setDlg(dlgread = 3);
+    //setShowTaskDlg(true);
+    setdlgTitle(e.target.value)
+    setScore(Score = Score + 200);
+    setGive(parGive+1);
+    fetchFirst();
+    updateScore();
+    titleDlg(); updateFreq();
+    setidSelected("Giveoutidea")
+   socket.emit("send_message", room);
+   
+};
 
     
 //---------------------------END----------------------------
@@ -121,9 +119,8 @@ const OnlineSessionStudent = () => {
     console.log('Cancel');
     deleteSelection();
     setShowTaskDlg(false);
-    //getStudentScore();
-    updateScore();
-    setSelected('');
+    //updateScore();
+    setSelected();
     theReward()
     setdlgTitle("");
     setDlg(null);
@@ -166,43 +163,37 @@ const OnlineSessionStudent = () => {
 
 //-----FOR UPDATING SCORE, FREQUENCY IN DB: DELETING SELECTION, GETTING LEADERBOARD--------
     
-    //score update
-    const updateScore = async (e) => {
+   //score update
+   const updateScore = async (e) => {
         
-        const response = await fetch(url + '/api/students/updateScore/' + selected, {
-            method: 'PATCH',
-            headers: {'Content-Type': 'application/json',
-                      'Authorization': `Bearer ${student.token}`,
-                     // 'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
-                      //'Access-Control-Allow-Credentials' : true},
-            },
-            body:   JSON.stringify({score:currScore})
-            
-        })
+    const response = await fetch(url + '/api/students/updateScore/' + selected, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${student.token}`},
+        body:   JSON.stringify({score:Score})
         
-        const data = await response.json()
-         
-         return data;
-    };
+    })
+    
+    const data = await response.json()
+     
+     return data;
+};
 
-    //frequency update
-    const updateFreq = async (e) => {
+//frequency update
+const updateFreq = async (e) => {
+    
+    const response = await fetch(url + '/api/students/updateParticipation/' + student.username, {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${student.token}`},
+        body:   JSON.stringify({participationAsk:parAsk, participationRec:parRec,participationGive:parGive})
         
-        const response = await fetch(url + '/api/students/updateParticipation/' + student.username, {
-            method: 'PATCH',
-            headers: {'Content-Type': 'application/json',
-                      'Authorization': `Bearer ${student.token}`,
-                      //'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
-                     // 'Access-Control-Allow-Credentials' : true},
-        },
-            body:   JSON.stringify({participationAsk:parAsk, participationRec:parRec,participationGive:parGive})
-            
-        })
-        
-        const data = await response.json()  
-        
-         return data;
-    };
+    })
+    
+    const data = await response.json()
+    
+     return data;
+};
 
     //for deletion 
     const deleteSelection = async (e) => {
@@ -305,7 +296,7 @@ const OnlineSessionStudent = () => {
         socket.on("receive_message", () => {
            fetchFirst();
            //updateScore();
-           //getStudentScore();
+           getStudentScore();
            getResults();
            setShowTaskDlg(true);	
            
