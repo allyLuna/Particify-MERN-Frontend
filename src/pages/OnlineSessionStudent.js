@@ -7,10 +7,11 @@ import io from "socket.io-client";
 import { useEffect } from "react";
 import { useFacultySetting } from '../hooks/useFacultySetting'
 import { useSession } from "../hooks/useSession";
+const url = "https://particify-backend.adaptable.app";
 
 const OnlineSessionStudent = () => {
 
-    const url = "https://particify-backend.adaptable.app";
+    
 
     var [Score, setScore ] = useState(2000)
     var [parAsk, setAsk ] = useState(0)
@@ -21,7 +22,7 @@ const OnlineSessionStudent = () => {
     const {student} = useAuthContext()
     const {session} = useFacultySetting()
     const {selection, error} = useSelection();
-    var [currScore, setCurrentScore] = useState()
+    const [currScore, setCurrentScore] = useState(0);
 
     // for dialog titles
     var[dlgread, setDlg] = useState(0)
@@ -196,14 +197,13 @@ const updateFreq = async (e) => {
 };
 
     //for deletion 
+    //for deletion 
     const deleteSelection = async (e) => {
         
         const response = await fetch(url + '/api/students/deleteSelection/' + idSelected, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json',
-                      'Authorization': `Bearer ${student.token}`,
-                      'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
-                      'Access-Control-Allow-Credentials' : true}
+                      'Authorization': `Bearer ${student.token}`}
             
         })
         
@@ -238,22 +238,12 @@ const updateFreq = async (e) => {
     };
 
     //get current score
-    const getStudentScore = async (e) => {
+     //get current score
+     const getStudentScore = async (e) => {
         
-        const response = await fetch(url + '/api/students/getScore/' + student.username, {
-            method: 'GET',
-            headers: {'Content-Type': 'application/json',
-                    //  'Authorization': `Bearer ${student.token}`},
-                    //'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
-                     // 'Access-Control-Allow-Credentials' : true
-            
-    }})
-        const data  = await response.json()
-
+        const response = await fetch(url + '/api/students/getScore/' + student.username)
+        const data = await response.json()
         setCurrentScore(data[0].score)
-        setAsk(data[0].participationAsk);
-        setRec(data[0].participationRec);
-        setGive(data[0].participationGive);
         console.log(currScore)
         return data;
     };
@@ -295,7 +285,6 @@ const updateFreq = async (e) => {
     useEffect(() => {
         socket.on("receive_message", () => {
            fetchFirst();
-           //updateScore();
            getStudentScore();
            getResults();
            setShowTaskDlg(true);	
