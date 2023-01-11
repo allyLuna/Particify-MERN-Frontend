@@ -21,10 +21,10 @@ const OnlineSessionStudent = () => {
     const {student} = useAuthContext()
     const {session} = useFacultySetting()
     const {selection, error} = useSelection();
-    const [currScore, setCurrentScore] = useState(0)
+    const [currScore, setCurrentScore] = useState(0);
     
     // for dialog titles
-    var[dlgread, setDlg] = useState(0)
+    var[dlgread, setDlg] = useState(0);
     
 
 
@@ -58,7 +58,7 @@ const OnlineSessionStudent = () => {
        // setShowTaskDlg(true);
        getStudentScore();
        
-        setCurrentScore(currScore + 100);
+        setCurrentScore(currScore = currScore + 100);
         setAsk(parAsk+ 1);
         //setdlgTitle(e.target.value)
         setidSelected("Askaquestion")
@@ -257,10 +257,10 @@ const OnlineSessionStudent = () => {
     }})
         const data  = await response.json()
 
-        setCurrentScore(data[0].score)
-        setAsk(data[0].participationAsk);
-        setRec(data[0].participationRec);
-        setGive(data[0].participationGive);
+        setCurrentScore(data.score)
+        setAsk(data.participationAsk);
+        setRec(data.participationRec);
+        setGive(data.participationGive);
         console.log(currScore)
         return data;
     };
