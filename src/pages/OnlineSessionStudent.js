@@ -120,7 +120,7 @@ const OnlineSessionStudent = () => {
     console.log('Cancel');
     deleteSelection();
     setShowTaskDlg(false);
-    updateScore();
+    //updateScore();
     setSelected('');
     theReward()
     setdlgTitle("");
@@ -300,6 +300,7 @@ const OnlineSessionStudent = () => {
     useEffect(() => {
         socket.on("receive_message", () => {
            fetchFirst();
+           updateScore();
            getStudentScore();
            getResults();
            setShowTaskDlg(true);	
