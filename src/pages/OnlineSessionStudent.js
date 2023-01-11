@@ -12,7 +12,7 @@ const OnlineSessionStudent = () => {
 
     const url = "https://particify-backend.adaptable.app";
 
-    var [Score, setScore ] = useState(2000)
+    var [Score, setScore ] = useState(0)
     var [parAsk, setAsk ] = useState(0)
     var [parRec, setRec ] = useState(0)
     var [parGive, setGive ] = useState(0)
@@ -54,7 +54,7 @@ const OnlineSessionStudent = () => {
         // input for selection
         await selection(student.username, e.timeStamp , e.target.value);
        
-       
+        getStudentScore();
        // setShowTaskDlg(true);
         setScore(Score = Score + 100);
         setAsk(parAsk+1);
@@ -78,6 +78,7 @@ const OnlineSessionStudent = () => {
         setDlg(dlgread = 2);
         //setShowTaskDlg(true);
         setdlgTitle(e.target.value)
+        getStudentScore();
         setScore(Score = Score + 500);
         setRec(parRec+1);
         setidSelected("Recite");
@@ -97,6 +98,7 @@ const OnlineSessionStudent = () => {
        
         setDlg(dlgread = 3);
         //setShowTaskDlg(true);
+        getStudentScore();
         setdlgTitle(e.target.value)
         setScore(Score = Score + 200);
         setGive(parGive+1);
@@ -252,7 +254,8 @@ const OnlineSessionStudent = () => {
     }})
         const data  = await response.json()
         setCurrentScore(data[0].score)
-        console.log(currScore)
+        setScore(data.score)
+        console.log(Score)
         return data;
     };
 
