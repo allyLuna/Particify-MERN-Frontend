@@ -21,8 +21,8 @@ const OnlineSessionStudent = () => {
     const {student} = useAuthContext()
     const {session} = useFacultySetting()
     const {selection, error} = useSelection();
-    const [currScore, setCurrentScore] = useState()
-
+    const [currScore, setCurrentScore] = useState(0)
+    
     // for dialog titles
     var[dlgread, setDlg] = useState(0)
     
@@ -254,6 +254,7 @@ const OnlineSessionStudent = () => {
             
     }})
         const data  = await response.json()
+
         setCurrentScore(currScore = data[0].score)
         setAsk(data.participationAsk);
         setRec(data.participationRec);
