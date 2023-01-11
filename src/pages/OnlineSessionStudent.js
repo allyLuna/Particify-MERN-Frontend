@@ -56,7 +56,7 @@ const OnlineSessionStudent = () => {
        
         getStudentScore();
        // setShowTaskDlg(true);
-        setScore(Score = Score + 100);
+        setScore(Score = currScore + 100);
         setAsk(parAsk+1);
         //setdlgTitle(e.target.value)
         setidSelected("Askaquestion")
@@ -79,7 +79,7 @@ const OnlineSessionStudent = () => {
         //setShowTaskDlg(true);
         setdlgTitle(e.target.value)
         getStudentScore();
-        setScore(Score = Score + 500);
+        setScore(Score = currScore + 500);
         setRec(parRec+1);
         setidSelected("Recite");
         fetchFirst();
@@ -100,7 +100,7 @@ const OnlineSessionStudent = () => {
         //setShowTaskDlg(true);
         getStudentScore();
         setdlgTitle(e.target.value)
-        setScore(Score = Score + 200);
+        setScore(Score = currScore + 200);
         setGive(parGive+1);
         fetchFirst();
         titleDlg(); updateFreq();
@@ -254,8 +254,8 @@ const OnlineSessionStudent = () => {
     }})
         const data  = await response.json()
         setCurrentScore(data[0].score)
-        setScore(data.score)
-        console.log(Score)
+        //setScore(data.score)
+        console.log(currScore)
         return data;
     };
 
