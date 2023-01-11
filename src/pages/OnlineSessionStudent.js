@@ -57,8 +57,8 @@ const OnlineSessionStudent = () => {
        
        // setShowTaskDlg(true);
        getStudentScore();
-        setScore(Score = currScore + 100);
-        setAsk(parAsk = parAsk + 1);
+        setScore(currScore + 100);
+        setAsk(parAsk+ 1);
         //setdlgTitle(e.target.value)
         setidSelected("Askaquestion")
         setDlg(dlgread = 1);
@@ -80,8 +80,8 @@ const OnlineSessionStudent = () => {
         //setShowTaskDlg(true);
         setdlgTitle(e.target.value)
         getStudentScore();
-        setScore(Score = currScore + 500);
-        setRec(parRec = parRec+1);
+        setScore(currScore + 500);
+        setRec(parRec+1);
         setidSelected("Recite");
         fetchFirst();
         titleDlg();updateFreq();
@@ -101,8 +101,8 @@ const OnlineSessionStudent = () => {
         //setShowTaskDlg(true);
         setdlgTitle(e.target.value)
         getStudentScore();
-        setScore(Score = currScore + 200);
-        setGive(parGive = parGive+1);
+        setScore(currScore + 200);
+        setGive(parGive+1);
         fetchFirst();
         titleDlg(); updateFreq();
         setidSelected("Giveoutidea")
