@@ -254,7 +254,7 @@ const OnlineSessionStudent = () => {
             
     }})
         const data  = await response.json()
-        setCurrentScore(data.score)
+        setCurrentScore(currScore = data[0].score)
         setAsk(data.participationAsk);
         setRec(data.participationRec);
         setGive(data.participationGive);
