@@ -14,7 +14,7 @@ export const useSession = () => {
 
     //const socket = io.connect("http://localhost:4001");
    // const [room, setRoom] = useState("")
-   var room = {};
+   //var room = {};
 
     const enterSession = async (class_Code) => {
         setIsLoading(true)

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useSelection } from "../hooks/useSelection";
 import Dialog from '../components/Msgdlg';
-import io from "socket.io-client";
+//import io from "socket.io-client";
 import { useEffect } from "react";
 import { useFacultySetting } from '../hooks/useFacultySetting'
 import { useSession } from "../hooks/useSession";
@@ -64,7 +64,7 @@ const OnlineSessionStudent = () => {
     fetchFirst();
     updateScore();
     titleDlg(); updateFreq();
-    socket.emit("send_message", room);
+   // socket.emit("send_message", room);
    // console.log({room})
     
 }
@@ -85,7 +85,7 @@ const btnRecite = async (e) =>  {
     fetchFirst();
     updateScore();
     titleDlg();updateFreq();
-   socket.emit("send_message", room);
+   //socket.emit("send_message", room);
    
     
 }
@@ -106,7 +106,7 @@ const btnGive = async (e) =>  {
     updateScore();
     titleDlg(); updateFreq();
     setidSelected("Giveoutidea")
-   socket.emit("send_message", room);
+   //socket.emit("send_message", room);
    
 };
 
@@ -275,7 +275,7 @@ const updateFreq = async (e) => {
 //-------------SERVER CONNECTION---------------
     
    
-    //const socket = io.connect("https://particify-backend.adaptable.app:80");
+    /*//const socket = io.connect("https://particify-backend.adaptable.app:80");
     
     const socket = io.connect('https://particify-backend.adaptable.app',
         { //cors:{ origin: "https://enchanting-madeleine-c3ff07.netlify.app"} ,
@@ -290,7 +290,7 @@ const updateFreq = async (e) => {
            setShowTaskDlg(true);	
            
     });
-    }, [socket])
+    }, [socket])*/
 
     
 //-------------END------------------------------

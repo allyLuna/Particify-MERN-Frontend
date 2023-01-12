@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useAuthContext } from "../hooks/useAuthContext";
 //import { useSelection } from "../hooks/useSelection";
 import Dialog from '../components/Msgdlg';
-import io from "socket.io-client";
+//import io from "socket.io-client";
 import { useEffect } from "react";
 
 //import { selected } from './OnlineSessionStudent';
@@ -217,7 +217,7 @@ const fetchFirst = async (e) => {
 
 //-------------SERVER CONNECTION---------------
     //new 12-7
-    const socket = io.connect('https://particify-backend.adaptable.app',
+   /* const socket = io.connect('https://particify-backend.adaptable.app',
         { //cors:{ origin: "https://enchanting-madeleine-c3ff07.netlify.app"} ,
          transports: ['websocket','polling'],
          upgrade:false})
@@ -233,7 +233,7 @@ const fetchFirst = async (e) => {
           getResults()
             setShowTaskDlg(true);	
     });
-    }, [socket])
+    }, [socket])*/
     
 /*const updateLeaderboard = () => {
         socket.emit("send_message", getAveScores() );
