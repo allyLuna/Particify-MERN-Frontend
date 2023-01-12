@@ -11,7 +11,7 @@ export const useSession = () => {
    // const {student} = useAuthContext()
    
    const url = "https://particify-backend.adaptable.app";
-   const net = "https://particify-2.netlify.app"
+   const net = "https://particify-2.netlify.app";
     //const socket = io.connect("http://localhost:4001");
    // const [room, setRoom] = useState("")
    //var room = {};
@@ -25,7 +25,7 @@ export const useSession = () => {
         const response = await fetch(url + '/api/students/student-home', {
             method: 'POST',
             headers: {'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin' : net,
+                      'Access-Control-Allow-Origin' : 'https://particify-2.netlify.app',
                       'Access-Control-Allow-Credentials' : true
                     },
             body: JSON.stringify(session),
