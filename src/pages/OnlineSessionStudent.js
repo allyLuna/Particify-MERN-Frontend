@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { useFacultySetting } from '../hooks/useFacultySetting'
 import { useSession } from "../hooks/useSession";
 const url = "https://particify-backend.adaptable.app";
-
+const net = "https://merry-churros-dc63e3.netlify.app"
 const OnlineSessionStudent = () => {
 
     
@@ -148,8 +148,8 @@ const btnGive = async (e) =>  {
             method: 'GET',
             headers: {'Content-Type': 'application/json',
                     //  'Authorization': `Bearer ${student.token}`},
-                    //'Access-Control-Allow-Origin' : 'https://particify.netlify.app', 
-                    //  'Access-Control-Allow-Credentials' : true
+                    'Access-Control-Allow-Origin' : net, 
+                      'Access-Control-Allow-Credentials' : true
             
     }})
         const data = await response.json()

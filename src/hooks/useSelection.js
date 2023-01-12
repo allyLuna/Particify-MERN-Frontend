@@ -7,7 +7,7 @@ export const useSelection = () => {
     const {student} = useAuthContext()
 
     const url = "https://particify-backend.adaptable.app";
-
+    const net = "https://merry-churros-dc63e3.netlify.app"
     const selection = async (student_uname, eventTimestamp, objectName) => {
         setIsLoading(true)
         setError(null)
@@ -23,9 +23,9 @@ export const useSelection = () => {
         
             headers: {'Content-Type': 'application/json',
                       'Authorization': `Bearer ${student.token}`,
-                    //  'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
-                    //  'Access-Control-Allow-Credentials' : true},
-        },
+                     'Access-Control-Allow-Origin' : net,
+                      'Access-Control-Allow-Credentials' : true},
+     //   },
             body: JSON.stringify(selectionDts)
         })
 

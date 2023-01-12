@@ -7,7 +7,7 @@ export const useLoginFaculty = () => {
     const {dispatch} = useAuthContextFaculty()
 
     const url = "https://particify-backend.adaptable.app";
-
+    const net = "https://merry-churros-dc63e3.netlify.app"
     const loginFaculty = async (username, password) => {
         setIsLoading(true)
         setError(null)
@@ -17,9 +17,9 @@ export const useLoginFaculty = () => {
         const response = await fetch(url + '/api/faculty/login-faculty', {
             method: 'POST',
             headers: {'Content-Type': 'application/json',
-          //  'Access-Control-Allow-Origin' : 'https://particify.netlify.app',
-          //  'Access-Control-Allow-Credentials' : true,},
-        },
+          'Access-Control-Allow-Origin' : net,
+           'Access-Control-Allow-Credentials' : true,},
+       // },
             body: JSON.stringify(faculty),
         })
         const json = await response.json()
