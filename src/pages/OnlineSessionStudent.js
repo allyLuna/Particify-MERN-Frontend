@@ -64,7 +64,7 @@ const OnlineSessionStudent = () => {
    // fetchFirst();
     updateScore();
     getStudentScore()
-    titleDlg(); updateFreq(); theReward();getResults();
+    titleDlg(); updateFreq(); theReward();//getResults();
    // socket.emit("send_message", room);
     console.log(Score)
 
@@ -88,7 +88,7 @@ const btnRecite = async (e) =>  {
   //  fetchFirst();
     updateScore();
     getStudentScore()
-    titleDlg();updateFreq(); theReward();getResults();
+    titleDlg();updateFreq(); theReward();//getResults();
    //socket.emit("send_message", room);
    
     deleteSelection();
@@ -109,7 +109,7 @@ const btnGive = async (e) =>  {
   //  fetchFirst();
     updateScore();
     getStudentScore()
-    titleDlg(); updateFreq(); theReward();getResults();
+    titleDlg(); updateFreq(); theReward();
     setidSelected("Giveoutidea")
    //socket.emit("send_message", room);
    deleteSelection();
@@ -241,7 +241,7 @@ const updateFreq = async (e) => {
              return data;
         
     };
-
+    getResults();
     //get current score
      //get current score
      const getStudentScore = async (e) => {
