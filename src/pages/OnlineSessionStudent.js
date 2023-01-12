@@ -66,9 +66,9 @@ const OnlineSessionStudent = () => {
     getStudentScore()
     titleDlg(); updateFreq(); theReward();getResults();
    // socket.emit("send_message", room);
-   // console.log({room})
+    console.log(Score)
 
-   
+   deleteSelection();
     
 }
     
@@ -91,7 +91,7 @@ const btnRecite = async (e) =>  {
     titleDlg();updateFreq(); theReward();getResults();
    //socket.emit("send_message", room);
    
-    
+    deleteSelection();
 }
 
 //Give Idea
@@ -112,7 +112,7 @@ const btnGive = async (e) =>  {
     titleDlg(); updateFreq(); theReward();getResults();
     setidSelected("Giveoutidea")
    //socket.emit("send_message", room);
-   
+   deleteSelection();
 };
 
     
@@ -176,7 +176,7 @@ const btnGive = async (e) =>  {
         method: 'PATCH',
         headers: {'Content-Type': 'application/json',
                   'Authorization': `Bearer ${student.token}`},
-        body:   JSON.stringify({score:Score})
+        body:   JSON.parse({score:Score})
         
     })
     
