@@ -8,7 +8,7 @@ import { useEffect } from "react";
 import { useFacultySetting } from '../hooks/useFacultySetting'
 import { useSession } from "../hooks/useSession";
 const url = "https://particify-backend.adaptable.app";
-const net = "https://merry-churros-dc63e3.netlify.app"
+const net = "https://particify-2.netlify.app"
 const OnlineSessionStudent = () => {
 
     

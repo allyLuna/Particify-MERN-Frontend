@@ -11,7 +11,7 @@ export const useSession = () => {
    // const {student} = useAuthContext()
    
    const url = "https://particify-backend.adaptable.app";
-   const net = "https://merry-churros-dc63e3.netlify.app"
+   const net = "https://particify-2.netlify.app"
     //const socket = io.connect("http://localhost:4001");
    // const [room, setRoom] = useState("")
    //var room = {};
