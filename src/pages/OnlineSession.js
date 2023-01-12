@@ -240,7 +240,7 @@ const fetchFirst = async (e) => {
     };*/
 //-------------------END--------------------
     
-<input type="submit" id="btnEnd" value="Get Leaderboards" onClick={getResults} />
+
     return(
         <><div className="body dark">
             <Dialog 
@@ -285,6 +285,7 @@ const fetchFirst = async (e) => {
                     </tbody>
                 </table>
             </div>
+            <input type="submit" id="btnEnd" value="Get Leaderboards" onClick={getResults} />
         </div></>
         
     )
