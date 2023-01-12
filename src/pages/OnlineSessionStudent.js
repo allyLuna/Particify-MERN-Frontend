@@ -61,11 +61,14 @@ const OnlineSessionStudent = () => {
     //setdlgTitle(e.target.value)
     setidSelected("Askaquestion")
     setDlg(dlgread = 1);
-    fetchFirst();
+   // fetchFirst();
     updateScore();
-    titleDlg(); updateFreq();
+    getStudentScore()
+    titleDlg(); updateFreq(); theReward();getResults();
    // socket.emit("send_message", room);
    // console.log({room})
+
+   
     
 }
     
@@ -82,9 +85,10 @@ const btnRecite = async (e) =>  {
     setScore(Score = Score + 500);
     setRec(parRec+1);
     setidSelected("Recite");
-    fetchFirst();
+  //  fetchFirst();
     updateScore();
-    titleDlg();updateFreq();
+    getStudentScore()
+    titleDlg();updateFreq(); theReward();getResults();
    //socket.emit("send_message", room);
    
     
@@ -102,9 +106,10 @@ const btnGive = async (e) =>  {
     setdlgTitle(e.target.value)
     setScore(Score = Score + 200);
     setGive(parGive+1);
-    fetchFirst();
+  //  fetchFirst();
     updateScore();
-    titleDlg(); updateFreq();
+    getStudentScore()
+    titleDlg(); updateFreq(); theReward();getResults();
     setidSelected("Giveoutidea")
    //socket.emit("send_message", room);
    
