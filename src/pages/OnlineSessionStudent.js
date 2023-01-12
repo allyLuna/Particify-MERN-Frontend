@@ -176,7 +176,7 @@ const btnGive = async (e) =>  {
         method: 'PATCH',
         headers: {'Content-Type': 'application/json',
                   'Authorization': `Bearer ${student.token}`},
-        body:   JSON.parse({score:Score})
+        body:   JSON.stringify({score:Score})
         
     })
     
