@@ -12,7 +12,7 @@ const SessionForm = () => {
   const [error, setError] = useState(null)
 
   const url = "https://particify-backend.adaptable.app";
-  
+  const net = "https://merry-churros-dc63e3.netlify.app"
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -28,7 +28,9 @@ const SessionForm = () => {
         body: JSON.stringify(session),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${faculty.token}`
+          'Authorization': `Bearer ${faculty.token}`,
+          'Access-Control-Allow-Origin' : net,
+          'Access-Control-Allow-Credentials' : true
         }
       })
       const json = await response.json()

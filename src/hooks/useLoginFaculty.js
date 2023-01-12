@@ -18,7 +18,7 @@ export const useLoginFaculty = () => {
             method: 'POST',
             headers: {'Content-Type': 'application/json',
           'Access-Control-Allow-Origin' : net,
-           'Access-Control-Allow-Credentials' : true,},
+           'Access-Control-Allow-Credentials' : true},
        // },
             body: JSON.stringify(faculty),
         })
