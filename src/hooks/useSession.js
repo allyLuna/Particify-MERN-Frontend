@@ -21,7 +21,7 @@ export const useSession = () => {
         setError(null)
     
         const session = {class_Code}
-         room = {class_Code}
+       //  room = {class_Code}
         const response = await fetch(url + '/api/students/student-home', {
             method: 'POST',
             headers: {'Content-Type': 'application/json',
@@ -55,5 +55,5 @@ export const useSession = () => {
     }
    
 
-    return {enterSession, isLoading, error, room}
+    return {enterSession, isLoading, error}
 }
