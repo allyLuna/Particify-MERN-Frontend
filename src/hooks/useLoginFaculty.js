@@ -7,7 +7,7 @@ export const useLoginFaculty = () => {
     const {dispatch} = useAuthContextFaculty()
 
     const url = "https://particify-backend.adaptable.app";
-    const net = "https://particify-2.netlify.app"
+    const net = "https://brilliant-fairy-52e9de.netlify.app"
     const loginFaculty = async (username, password) => {
         setIsLoading(true)
         setError(null)

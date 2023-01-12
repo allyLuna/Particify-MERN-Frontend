@@ -7,7 +7,7 @@ export const useSelection = () => {
     const {student} = useAuthContext()
 
     const url = "https://particify-backend.adaptable.app";
-    const net = "https://particify-2.netlify.app"
+    const net = "https://brilliant-fairy-52e9de.netlify.app"
     const selection = async (student_uname, eventTimestamp, objectName) => {
         setIsLoading(true)
         setError(null)
