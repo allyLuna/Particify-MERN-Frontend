@@ -172,7 +172,7 @@ const btnGive = async (e) =>  {
    //score update
    const updateScore = async (e) => {
         
-    const response = await fetch(url + '/api/students/updateScore/' + selected, {
+    const response = await fetch(url + '/api/students/updateScore/' + student.username, {
         method: 'PATCH',
         headers: {'Content-Type': 'application/json',
                   'Authorization': `Bearer ${student.token}`},
@@ -306,7 +306,7 @@ const updateFreq = async (e) => {
         
         <div className="body dark">
             <div className="center2 recite">
-            <h2 className="score" id="currentScore">{student.username}: {currScore}</h2>
+            <h2 className="score" id="currentScore">{student.username}: {Score}</h2>
             <br /><br /><br />
                 <input type="submit" id="btnAsk" value="Ask a question" onClick={btnAsk} /><br /><br /><br />
                 <input type="submit" id="btnRecite" value="Recite" onClick={btnRecite} /><br /><br /><br />
