@@ -240,7 +240,7 @@ const fetchFirst = async (e) => {
     };*/
 //-------------------END--------------------
     
-//<input type="submit" id="btnEnd" value="End Discussion" onClick={getAveScores} />
+<input type="submit" id="btnEnd" value="Get Leaderboards" onClick={getResults} />
     return(
         <><div className="body dark">
             <Dialog 
