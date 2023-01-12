@@ -22,7 +22,7 @@ const OnlineSessionStudent = () => {
     const {student} = useAuthContext()
     const {session} = useFacultySetting()
     const {selection, error} = useSelection();
-    const [currScore, setCurrentScore] = useState();
+    const [currScore, setCurrentScore] = useState(0);
 
     // for dialog titles
     var[dlgread, setDlg] = useState(0)
