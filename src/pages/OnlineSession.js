@@ -284,10 +284,10 @@ const fetchFirst = async (e) => {
                         </tr>
                     </tbody>
                 </table>
-                <br/> <br/> <br/> <br/>
-                <input type="submit" id="btnEnd" value="Get Leaderboards" onClick={getResults} />
+                
             </div>
-           
+            <br/> <br/> <br/> <br/>
+                <input type="submit" id="btnEnd" value="Get Leaderboards" onClick={getResults} />
         </div></>
         
     )
