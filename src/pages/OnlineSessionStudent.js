@@ -208,7 +208,9 @@ const updateFreq = async (e) => {
         const response = await fetch(url + '/api/students/deleteSelection/' + idSelected, {
             method: 'DELETE',
             headers: {'Content-Type': 'application/json',
-                      'Authorization': `Bearer ${student.token}`}
+                      'Authorization': `Bearer ${student.token}`,
+                      'Access-Control-Allow-Origin' : net,
+                      'Access-Control-Allow-Credentials' : true}
             
         })
         
@@ -225,8 +227,8 @@ const updateFreq = async (e) => {
                 method: 'GET',
                 headers: {'Content-Type': 'application/json',
                         //  'Authorization': `Bearer ${student.token}`},
-                      //  'Access-Control-Allow-Origin' : net,
-                        // 'Access-Control-Allow-Credentials' : true
+                        'Access-Control-Allow-Origin' : net,
+                        'Access-Control-Allow-Credentials' : true
                 
         }})
             const data = await response.json()
